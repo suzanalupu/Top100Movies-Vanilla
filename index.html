@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href=".assets/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">   
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://kit.fontawesome.com/09319211c6.js" crossorigin="anonymous"></script>
+    <title>Top 100 Movies</title>
+</head>
+<body>
+    <div class="wrapper">
+    <header>
+        <a href="#home"><img src="./assets/img/white_logo.png" alt="top 100 movies" class="logo header1"></a>
+        <!-- <nav class="main-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav> -->
+        <div class='header2'>
+        <form id="searchForm">
+            <input type="text" id="searchText"  class="searchText" placeholder="Search for a movie...">
+            <button type="submit" id="searchButton" class="searchButton"><i class="fas fa-search"></i></button>
+        </form>
+        </div>
+        <div class="social-links header3">
+            <p>Follow us:</p>
+            <a href="https://facebook.com"><i class="fab fa-facebook-f icon"></i></a>
+            <a href="https://instagram.com"><i class="fab fa-instagram icon"></i></a>
+            <a href="https://twitter.com"><i class="fab fa-twitter icon"></i></a>
+        </div>
+    </header>
+        <main> 
+            <!-- hero image-->
+            <section class="hero-image">
+                <section class="heroTextSection heroTextSectionGrid">
+                    <h1 class="heroTextSectionGrid1">UPCOMING MOVIES <div><hr class="divider"></div></h1>
+                    <a href="#top100movies" class="float heroTextSectionGrid2"><p>SEE <span id="topMovies">#TOP100MOVIES</span>&nbsp;<i class="fas fa-arrow-right"></i> </p></a>
+                 </section>
+               <section id='upcomingMovies' class="upcomingMovieCovers">
+            </section>
+            </section>
+
+            <!-- MOVIES CONTAINER DYAMIC-->
+            <section class="topMoviesSection" id="top100movies">
+                <div class="top100MoviesContainer">
+                    <div class="movieElement moviesContainerItem-10" id="topRatedSingleMovie">
+
+                    </div>
+
+             </div>
+
+                <div class="searchByGenre moviesContainerItem moviesContainerItem-2" id = "searchByGenre">
+    
+                </div>
+                
+            </section>
+           
+
+            
+          
+        </main>
+        <footer class="grid grid-10"></footer>
+    </div>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>

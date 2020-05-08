@@ -1,0 +1,9 @@
+{
+    "launch": {
+    
+    },
+    "javascript.suggest.completeFunctionCalls": true,
+    "typescript.suggest.completeFunctionCalls": true,
+    "java.signatureHelp.enabled": true,
+    "liveServer.settings.port": 5501
+}
