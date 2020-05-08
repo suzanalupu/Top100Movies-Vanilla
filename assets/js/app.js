@@ -2,7 +2,7 @@
 
 const API_KEY = 'b702f725c6b50fd4431a004ded241168';
 const urlSearch = 'https://api.themoviedb.org/3/search/movie?api_key=b702f725c6b50fd4431a004ded241168';
-const urlUpcoming = 'https://api.themoviedb.org/3/movie/upcoming?api_key=b702f725c6b50fd4431a004ded241168&region=US&sort_by=release_date.asc';
+const urlUpcoming = 'https://api.themoviedb.org/3/movie/upcoming?api_key=b702f725c6b50fd4431a004ded241168&region=US';
 const urlImage ='https://image.tmdb.org/t/p/w500'
 const selectGenreCategory ='https://api.themoviedb.org/3/discover/movie?api_key=b702f725c6b50fd4431a004ded241168&with_genres='
 const moviesAllGenreList='https://api.themoviedb.org/3/genre/movie/list?api_key=b702f725c6b50fd4431a004ded241168';
