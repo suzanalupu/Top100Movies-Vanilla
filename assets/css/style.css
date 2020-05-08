@@ -170,16 +170,6 @@ footer {
   border-top: 1px solid rgba(110, 106, 106, 0.2);  
   padding: 20px;
 }
-.social-links-footer {
-  text-align: center;
-  letter-spacing: 20px;
-  font-size: 1.5rem;
-  color: black;
-  margin-bottom: 3%;
-}
-.social-links-footer a .icon {
-  font-size: 23px;
-}
 
 #copyright {
 color: #E2B616;
@@ -413,6 +403,14 @@ span.ten {
     justify-self: center;
     grid-row: span 1;
   }
+
+  #searchText {
+    width:94%;
+    }
+    
+    #searchButton {
+    right: 2rem;
+    }
   .hero-image {
     padding: 0;
   }
@@ -430,7 +428,7 @@ span.ten {
   }
 
   .heroTextSection h1 {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   .heroTextSectionGrid2 p{
     justify-self: end;
@@ -492,6 +490,13 @@ span.ten {
   padding: 5px;
   grid-column: 2/1;
   margin-bottom: 12%;
+}
+.movieDetails:last-child {
+  margin-bottom: 0;
+}
+
+footer p {
+  font-size: 12px;
 }
 }
 
