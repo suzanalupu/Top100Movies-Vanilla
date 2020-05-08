@@ -414,6 +414,8 @@ span.ten {
   }
   .upcomingMovieCovers {
     grid-template-columns: repeat(2, minmax(auto, 1fr));
+    grid-auto-rows: 200px;
+    grid-gap: 1rem;
   
   }
   .upcomingMovieElement {
