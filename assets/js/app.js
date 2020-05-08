@@ -191,7 +191,7 @@ function getTopRatedMovies(path) {
                     <p class="movieRating"><span class="star">&#9733;</span>${topRatedMovie.vote_average}<span class="ten">/10</span></p>
                     <p class="movieDescription">${topRatedMovie.overview}</p>
                     <hr>
-                    <p class="movieTime">Runtime: ${topRatedMovie.rutime} min &nbsp; &#8226; &nbsp; <span class="movieGenre">Gen: x</span></p>
+                    <p class="movieTime">Runtime: ${topRatedMovie.rutime} min &nbsp;</p>
                     <p class="movieDirector">Director: x name</p>
                     <p class="movieStars">Stars: x name</p>
                 </section>
