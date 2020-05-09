@@ -47,6 +47,8 @@ span {
 h1 {
   font-family: 'Dosis', sans-serif;
   font-size: 2rem;
+  color: #ffffff;
+  letter-spacing: 2px;
 }
 
 h2 {
@@ -56,6 +58,14 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: bold;
+}
+
+h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-weight: normal;
+  color: white;
 }
 
 a {
@@ -404,6 +414,54 @@ span.ten {
 .movieTitle:hover {
   color: #E2B616;
 }
+
+/* --------------------------------------------   DETAILS PAGE-----------------------------------*/
+.movieElementContainer {
+ padding-top: 80px;
+}
+.heroMovieDetails {
+  height: 50vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 1rem;
+  }
+.heroMovieDetails1 {
+  grid-column: 2/1;
+}
+.heroMovieDetails2 {
+
+  align-items:center;
+  grid-column: 2/5;
+  padding: 40px 20px;
+}
+.heroMovieDetailsImage {
+  width: auto;
+  min-height: 300px;
+  height: 500px;
+}
+.smallDetails {
+  border-top: 1px solid #405266;
+  border-bottom: 1px solid #405266;
+  padding: 10px 5px;
+  font-size: 1rem;
+}
+
+.overviewDetails {
+  color: white;
+  padding-top: 20px;
+}
+
+.director {
+  padding-top: 15px;
+}
+
+
+
+
+
+
+
 /* ----- ------------------------------------------MEDIA QUERIES------------------------------ ---*/
 
 /* Smartphones (portrait and landscape) ----------- */
@@ -550,7 +608,6 @@ span.ten {
   }
 
 }
-
 /* Desktops and laptops ----------- */  
 /* media query for header */
 @media only screen and (min-width : 500px) and (max-width: 1100px){
@@ -779,7 +836,7 @@ span.ten {
 
 
 }
- @media only screen and (min-width : 1101px) and (max-width: 1345px){ 
+ @media only screen and (min-width : 1101px) and (max-width: 1346px){ 
   .hero-image {
     height: auto;
     margin-bottom: 5%;
@@ -824,7 +881,7 @@ font-size: 1rem;
  
 }
 
-@media only screen and (min-width : 1345px) and (max-width: 1550px){
+@media only screen and (min-width : 1346px) and (max-width: 1550px){
   .upcomingDetails .heroMovieTile {
     width: 240px;
     font-size: 1.2rem;
@@ -832,4 +889,16 @@ font-size: 1rem;
     white-space: nowrap;
     overflow: hidden; 
   }
+  .topMoviesSection {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+  }
+  .moviesContainerItem-10 {
+    order: 1 !important;
+    grid-column: span 4;
+  }
+  .searchByGenre  {
+      grid-column: span 1;
+      order: 2;
+    }
  }

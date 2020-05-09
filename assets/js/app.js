@@ -10,26 +10,6 @@ const urlTopRatedMovies ='https://api.themoviedb.org/3/movie/top_rated?api_key=b
 const urlGetDetails = 'https://api.themoviedb.org/3/movie/640344?api_key=b702f725c6b50fd4431a004ded241168';
 
 
-// function generateUrl (path) {
-//     const url = `https://api.themoviedb.org/3${path}?api_key=b702f725c6b50fd4431a004ded241168`;
-//     return url;
-// }
-// //load all details for movies fetch details of movies
-// function getMovieDetails(movie) {
-//     const url = `https://api.themoviedb.org/3${movie.id}?api_key=b702f725c6b50fd4431a004ded241168`;
-// console.log("id-ul este: ");
-
-// fetch(url)
-// .then((res) => res.json())
-// .then((movie) => {
-//     console.log("movie details" + movie);
-// })
-// .catch((error) => {
-//     console.log('Error: ' + error);
-// })
-// }
-
-// getMovieDetails();
 /* ----------------------------------------------CREATE SPECIFIC URL FUNCTION ---------------------------------------------*/
 
 //  let idsArray;
@@ -49,7 +29,7 @@ const urlGetDetails = 'https://api.themoviedb.org/3/movie/640344?api_key=b702f72
 //         console.log("aici " + idsArray);
 //    // return  `https://api.themoviedb.org/3/movie/${idsArray}?api_key=b702f725c6b50fd4431a004ded241168`; 
 // }
-// }).join('')
+// })
 // })
 /* ---------------------------------------------- HERO MOVIES---------------------------------------------*/
 function getUpcomingMovies() {
@@ -62,7 +42,6 @@ function getUpcomingMovies() {
         return response.json() 
     }).then((upcomingMovies) => {
         // console.log(upcomingMovies.results)
-        /* try to add the first genre */
          let sliceArray = upcomingMovies.results.slice(1,5);
          console.log(sliceArray)
         let movieNewArray = sliceArray.map((movie) => {
@@ -83,42 +62,6 @@ console.log(movieNewArray);
     }).catch(error => console.log(error))
 }
 
-/* ---------------------------------------------- TOP 100 CONTENT  VARIANTA BUNA---------------------------------------------*/ 
-// function getTopRatedMovies() {
-   
-//     fetch(urlTopRatedMovies, {
-//     method: 'GET' 
-// }).then((response) => {
-//     if (!response.ok) {
-//                 throw Error("ERROR!")
-//            } else 
-//             return response.json() 
-//         }).then((topRatedMovies) => {
-//             console.log(topRatedMovies.results);
-//             const top100Movies = topRatedMovies.results.map((topRatedMovie) => {
-//                 return `
-
-//                 <section class="movieCover movieElementImg">
-//                     <img class="movieCoverImage" src=${urlImage + topRatedMovie.poster_path}>
-//                 </section>
-//                 <section class="movieDetails movieElementDetails">
-//                     <h2 class="movieTitle">${topRatedMovie.title}<span class="movieYearRelease"> (${topRatedMovie.release_date})</span></h2>
-//                     <p class="movieRating"><span class="star">&#9733;</span>${topRatedMovie.vote_average}<span class="ten">/10</span></p>
-//                     <p class="movieDescription">${topRatedMovie.overview}</p><br>
-//                     <hr>
-//                     <br>
-//                     <p class="movieTime">Runtime: ${topRatedMovie.rutime} min &nbsp; &#8226; &nbsp; <span class="movieGenre">Gen: x</span></p>
-//                     <p class="movieDirector">Director: x name</p>
-//                     <p class="movieStars">Stars: x name</p>
-//                 </section>
-//             `;
-//             })
-//             document.querySelector('#topRatedSingleMovie').innerHTML = top100Movies;
-//             console.log(top100Movies);
-  
-
-//         }).catch(error => console.log("ERROR"))
-//     }
 
 
 /* ----------------------------------------------------SEARCH BOX FUNCTIONAITY ----------------------------------------------------*/
@@ -126,12 +69,6 @@ console.log(movieNewArray);
 const searchButton = document.querySelector('#searchButton');
 const searchInput = document.querySelector('#searchText');
 
-
-// // creez un container pentru fiecare element Movie - cu clasa movieElement
-// const movieElement = document.createElement('DIV');
-// movieElement.setAttribute('class', 'movieElement');
-
-// const moviesElement = document.querySelector('.moviesContainer');
 function createMovieContainer() {
 const  top100MoviesContainer = document.createElement('div');
 top100MoviesContainer.setAttribute('class', 'top100MoviesContainer')
@@ -210,33 +147,6 @@ function getTopRatedMovies(path) {
 // getTopRatedMovies(5);
 
 
-
-
-/* --------------------------------------------------- INCERCARE PRELUARE FILME ----------------------------------------------------*/
-
-function setMovie (movieId) {
-    clearTop100MoviesContainer();
-    var movie = document.getElementById('topRatedSingleMovie')
-}
-
-// function getMovies(movieId) {
-//     const url = `https://api.themoviedb.org/3/movie/${movieId.id}?api_key=b702f725c6b50fd4431a004ded241168`;
-
-//     fetch(url)
-//     .then(data => {
-//       return data.json()
-//     })
-//     .then(res => {
-//         console.log("fd " + res)
-//       let items = res.results
-    
-//       }
-
-
-// })
-// }
-// getMovies(640344);
-
 /* ---------------------------------------------------  PRELUARE GENURI ----------------------------------------------------*/
 function genreSpan(genres) {
    return   genres.map((genre) => {
@@ -266,7 +176,6 @@ window.onload = function() {
   this.getTopRatedMovies(1);
   
 /* fetch for genres */
-
 fetch(moviesAllGenreList, {
     method:'GET'        
 })
@@ -286,15 +195,49 @@ fetch(moviesAllGenreList, {
     });
 
 
+/* create a function with a new array to store the ids of movies in order to create url for details page*/
+    function getIds(ids) {
+        for (let i= 0; i<ids.length; i++) {
+          console.log(ids[i].id);
+      }
+      return  ids.map((id) => {
+          return id;
+      })
+  }
+    /* get all ids from top rated */
+    fetch(urlTopRatedMovies, {
+        method: 'GET'
+    })
+    .then(response => {
+        if(!response.ok) {
+            throw Error('Error')
+        } else
+        return response.json()
+    })
+    .then(data => {
+        const ids=data.results;
+        const movieIdsList = getIds(ids);
+        console.log(movieIdsList);
+        
+    }).catch((error) => {
+        console.log('error', error);
+    });
+
+/* function to open the detail page */
+function openPage() {
+    window.open('/details.html');
+}
+
     //EVENT DELEGATION --> when you click on your target something will happen
     //what happen if you click on a image? -NOTHINGGGG 
     document.onclick = function(event) {
         const target = event.target;
-        //when u click your target-your img then  console.log('hello mushroom')
+        //when u click your target-your img then
         if(target.tagName.toLowerCase() === 'img'){
-                  
+        openPage();                
         }
   
     }
+
 }
 
