@@ -122,7 +122,7 @@ window.onload = function() {
             console.log(videos)
             const videoTrailerContainer = document.querySelector('#videoTrailer');
             const videoTrailerIframes = document.createElement('div');
-            videoTrailerIframes.setAttribute('class', 'videoTrailerIframes flex')
+            videoTrailerIframes.setAttribute('class', 'videoTrailerIframes')
 
 
             for (let i=0; i<videos.length; i++) {
