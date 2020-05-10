@@ -1,10 +1,8 @@
 /*---------------------------------------------  URLS ------------------------------------------------*/
-const urlMovieDetails = 'https://api.themoviedb.org/3/movie/19404?api_key=b702f725c6b50fd4431a004ded241168';
-const urlMovieCast = 'https://api.themoviedb.org/3/movie/19404/credits?api_key=b702f725c6b50fd4431a004ded241168';
-const urlMovieVideo = 'https://api.themoviedb.org/3/movie/19404/videos?api_key=b702f725c6b50fd4431a004ded241168';
+const urlMovieDetails = 'https://api.themoviedb.org/3/movie/618344?api_key=b702f725c6b50fd4431a004ded241168';
+const urlMovieCast = 'https://api.themoviedb.org/3/movie/618344/credits?api_key=b702f725c6b50fd4431a004ded241168';
+const urlMovieVideo = 'https://api.themoviedb.org/3/movie/618344/videos?api_key=b702f725c6b50fd4431a004ded241168';
 const urlImage ='https://image.tmdb.org/t/p/w500';
-
-
 
 function movieDetailsContainer(data) {
     const movieElementContainer = document.querySelector('#movieElementContainer');
@@ -39,6 +37,36 @@ function movieDetailsContainer(data) {
     return movieElementContainer;
 }
 
+/* actors section */
+function actorsSection(actors) {
+    return actors.map((actor) => {
+        return `<section class="actorDetails">
+        <img class="actorImg" src=${urlImage + actor.profile_path}>
+        <p class="realName">${actor.name}</p>
+        <p class="character">"${actor.character}"</p>
+    </section> `;
+    })
+}
+function actorsContainer(actors) {
+    const movieCastContainer = document.querySelector('#seriesCast');
+    const movieCastTemplate = ` 
+    ${actorsSection(actors)}
+    `;
+    movieCastContainer.innerHTML = movieCastTemplate;
+    return movieCastContainer;
+}
+
+/* trailer section */
+function createIframe(video) {
+    const iframe = document.createElement('iframe');
+    iframe.src =  `https://www.youtube.com/embed/${video.key}`;
+    iframe.width = 500;
+    iframe.height = 350;
+    iframe.allowFullscreen = true;
+
+    return iframe;
+}
+
 /*-----------------------------------------on load----------------------------------------------------*/
 window.onload = function() {
 
@@ -52,6 +80,58 @@ window.onload = function() {
         })
         .then((data) => {
             const details = movieDetailsContainer(data);
+            const crewDetails = data.crew;
+
+           
+        })
+        .catch(error => console.log(error))
+
+
+        /* fetch for production */
+        fetch(urlMovieCast, {
+            method: 'GET'
+        }).then((response) => {
+            if (!response.ok) {
+                throw Error("ERROR!")
+            } else 
+            return response.json()            
+        })
+        .then((data) => {
+            // const cast = getCast(data);
+             const actors = data.cast;
+             const actorsBlock = actorsContainer(actors);
+            const crewDetails = data.crew;
+            console.log(crewDetails);
+           
+        })
+        .catch(error => console.log(error))
+
+
+        /* fetch movie video  */
+
+        fetch(urlMovieVideo, {
+            method: 'GET'
+        }).then((response) => {
+            if (!response.ok) {
+                throw Error("ERROR!")
+            } else 
+            return response.json()            
+        })
+        .then((data) => {
+            videos = data.results;
+            console.log(videos)
+            const videoTrailerContainer = document.querySelector('#videoTrailer');
+            const videoTrailerIframes = document.createElement('div');
+            videoTrailerIframes.setAttribute('class', 'videoTrailerIframes flex')
+
+
+            for (let i=0; i<videos.length; i++) {
+                video = videos[i];
+                const iframe = createIframe(video);
+                videoTrailerIframes.appendChild(iframe);
+                videoTrailerContainer.appendChild(videoTrailerIframes);
+            }
+           
         })
         .catch(error => console.log(error))
 

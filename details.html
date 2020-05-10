@@ -9,10 +9,10 @@
         <script src="https://kit.fontawesome.com/09319211c6.js" crossorigin="anonymous"></script>
         <title>Movie Details</title>
 </head>
-<body>
+<body class="details">
     <div class="wrapper">
     <header>
-        <a href="#home"><img src="./assets/img/white_logo.png" alt="top 100 movies" class="logo header1"></a>
+        <a href="index.html"><img src="./assets/img/white_logo.png" alt="top 100 movies" class="logo header1"></a>
         <div class='header2'>
         <form id="searchForm">
             <input type="text" id="searchText"  class="searchText" placeholder="Search for a movie...">
@@ -28,32 +28,22 @@
     </header>
     <main>
         <div class='movieElementContainer' id="movieElementContainer">
-            <!-- <div class="heroMovieDetails">
-            <section class=" heroMovieDetails1">
-              <img class=" heroMovieDetailsImage" src="https://image.tmdb.org/t/p/w500/niyXFhGIk4W2WTcX2Eod8vx2Mfe.jpg">
-            </section>
-            <div class="heroMovieDetails2">
-                <h1 class="movieTitleDetails">TITLE<span class="movieYearRelease">(2020)</span></h1>
-                <div class="smallDetails">
-                    <p class="movieRating"><span class="star">&#9733;</span>${topRatedMovie.vote_average}<span class="ten">/10</span>
-                    &bull;
-                    <span>Runtime: ${.runtime}</span>
-                    <span>Genre: ${.genre}</span>
-                    </p>
-                </div>
-
-            <section class="overviewDetails">
-                <h2> Overview </h2>
-                <p class="movieDetailsOverview">details</p>
-            </section>
-            <section class="director">
-                <h3 class="JobTitle"> Director: <span class="directorName">Director Name</span></h3>
-            </section>
-            </div>
-            </div> -->
         </div>
+
+        <div class="actorsContainer">
+            <h2 class="mediaVideos">Cast</h2>
+            <hr class="divider">
+            <div class="seriesCast flex loaded" id="seriesCast">  
+            </div>
+        </div>
+
+        <div class="videoTrailer" id="videoTrailer">
+            <h2 class="mediaVideos">Trailer(s)</h2>
+            <hr class="divider">
+        </div>
+    
     </main> 
-    </div>
+</div>
     <footer class="grid grid-10">
         <p>&copy; 2020 Copyright <span id="copyright">Top 100 Movies</span><br class="break-display"> All Rights Reserved.</p>
     </footer>

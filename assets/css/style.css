@@ -17,13 +17,19 @@ html {
   overflow-x: hidden;
 }
 
-body {
-  background-image: url(../img/shutterstock_559039102_collage.jpg);
+body{
   background-size: contain;
-  background-position: 85% 0%;
   background-repeat: no-repeat;
   background-color:#020D18;
+}
+body.index {
+  background-image: url(../img/shutterstock_559039102_collage.jpg);
+  background-position: 85% 0%;
+}
 
+body.details {
+  background-image: url(../img/shutterstock_559039102_collageDetails.jpg);
+  background-position: 20% 0%;
 }
 .wrapper {
   width: 100%;
@@ -420,7 +426,7 @@ span.ten {
  padding-top: 80px;
 }
 .heroMovieDetails {
-  height: 50vh;
+  height: 55vh;
   display: grid;
   grid-template-columns: repeat(auto-fill, 1fr);
   grid-template-rows: auto;
@@ -438,7 +444,8 @@ span.ten {
 .heroMovieDetailsImage {
   width: auto;
   min-height: 300px;
-  height: 500px;
+  height: 450px;
+  box-shadow: 0 2px 8px rgba(119, 111, 111, 0.5);
 }
 .smallDetails {
   border-top: 1px solid #405266;
@@ -448,19 +455,74 @@ span.ten {
 }
 
 .overviewDetails {
-  color: white;
+  margin-top: 1rem;
   padding-top: 20px;
+  color: white;
 }
 
 .director {
   padding-top: 15px;
 }
 
+.seriesCast {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  width: 1400px;
+  overflow-y:hidden;
+  overflow-x:scroll;
+  padding: 15px 15px 15px 0;
+  background-color:#030D17;
+}
 
+.flex {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.loaded {
+  min-height: 0;
+}
 
+.actorDetails {
+  height: 350px;
+  margin-right: 10px;
+  box-shadow: 0 2px 8px rgba(119, 111, 111, 0.5);
+  min-height: min-content;
+  white-space: nowrap;
+}
+.actorImg {
+  width: 150px;
+  min-width:150px;
+  overflow: visible;
+}
+.actorsContainer {
+  padding: 100px 0 40px 0;
+}
+.realName {
+  font-size: 1rem;
+  font-weight: 600;
+  color:white;
+}
+.character, .realName  {
+  width: 140px;
+  text-overflow: ellipsis; 
+  white-space: pre-wrap;
+  overflow: hidden; 
+  padding: 5px 10px;
+  color:white;
+}
 
+.videoTrailer {
+  padding: 50px 0;
+  border-top: 1px solid rgba(110, 106, 106, 0.2);
+}
 
-
+.videoTrailer iframe {
+margin-right: 1rem;
+}
 
 /* ----- ------------------------------------------MEDIA QUERIES------------------------------ ---*/
 
