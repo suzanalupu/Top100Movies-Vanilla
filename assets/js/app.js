@@ -225,7 +225,7 @@ fetch(moviesAllGenreList, {
 
 /* function to open the detail page */
 function openPage() {
-    window.open('/Top100Movies-Vanilla/details.html');
+    window.open('details.html');
 }
 
     //EVENT DELEGATION --> when you click on your target something will happen
